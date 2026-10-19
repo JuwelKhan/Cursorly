@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursorly — Custom cursor effects</title>
+  <meta name="description" content="Cursorly: dependency-free custom cursor effects — dots, rings, blend blobs, trails, particles, spotlight and magnetic buttons.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav__logo" href="#top" data-cursor-stick>cursorly<span>.</span></a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#presets" data-cursor-stick>Presets</a>
+      <a href="#playground" data-cursor-stick>Playground</a>
+      <a href="#builder" data-cursor-stick>Builder</a>
+      <a href="#start" data-cursor-stick>Docs</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle dark mode" data-cursor-stick data-cursor-magnetic="0.4">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="icon-button" href="https://github.com/JuwelKhan/cursorly" aria-label="Cursorly on GitHub" data-cursor-stick data-cursor-magnetic="0.4">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== Hero ===================== -->
+    <section class="hero">
+      <p class="kicker">v0.9 · dependency-free · ~13 kB gzipped</p>
+      <h1>Give your cursor<br>some <em>personality.</em></h1>
+      <p class="lead">
+        Cursorly is a tiny library for custom cursor effects. Rings that wrap your buttons, blobs that invert the page,
+        neon trails, sparkles, a torch-like spotlight and magnetic links — mix any of them in one line.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#presets" data-cursor-magnetic>Browse presets</a>
+        <a class="button" href="#start" data-cursor-magnetic>Get started</a>
+      </div>
+      <p class="touch-note">Cursor effects need a mouse or trackpad — open this page on a desktop to try them.</p>
+      <button class="install" type="button" data-copy="npm install cursorly" data-cursor-text="Copy">
+        <span class="install__prompt">$</span> npm install cursorly
+        <span class="install__hint" data-copy-hint>copy</span>
+      </button>
+    </section>
+
+    <!-- ===================== Presets ===================== -->
+    <section class="section" id="presets">
+      <header class="section__head">
+        <p class="kicker">01 — Presets</p>
+        <h2>Pick a vibe.<br>One line each.</h2>
+        <p>Click a card to switch the cursor on this page. Every preset is just a list of effects you can tweak.</p>
+      </header>
+      <div class="presets" data-presets></div>
+    </section>
+
+    <!-- ===================== Playground ===================== -->
+    <section class="section" id="playground">
+      <header class="section__head">
+        <p class="kicker">02 — Playground</p>
+        <h2>Hover anything.</h2>
+        <p>Plain HTML attributes control how the cursor reacts. No JavaScript per element.</p>
+      </header>
+
+      <div class="tiles">
+        <article class="tile">
+          <h3>Links &amp; buttons</h3>
+          <p>Links, buttons and form controls switch to the <code>pointer</code> state automatically.</p>
+          <div class="row">
+            <a href="#playground">A regular link</a>
+            <button class="button button--small" type="button">A button</button>
+            <label class="check"><input type="checkbox" checked> Checkbox</label>
+          </div>
+        </article>
+
+        <article class="tile">
+          <h3>Magnetic &amp; sticky</h3>
+          <p><code>data-cursor-magnetic</code> pulls an element towards the pointer, <code>data-cursor-stick</code> wraps the ring around it.</p>
+          <div class="row">
+            <button class="round" type="button" data-cursor-magnetic="0.5" data-cursor-stick aria-label="Like">♥</button>
+            <button class="round" type="button" data-cursor-magnetic="0.5" data-cursor-stick aria-label="Share">↗</button>
+            <button class="round" type="button" data-cursor-magnetic="0.5" data-cursor-stick aria-label="Save">★</button>
+            <button class="button button--small" type="button" data-cursor-magnetic data-cursor-stick>Sticky pill</button>
+          </div>
+        </article>
+
+        <article class="tile tile--wide">
+          <h3>Labels</h3>
+          <p><code>data-cursor-text</code> shows a label inside the ring, blob or orbit.</p>
+          <div class="gallery">
+            <a class="art art--1" href="#playground" data-cursor-text="View"><span>Project 01</span></a>
+            <a class="art art--2" href="#playground" data-cursor-text="Play ▶"><span>Showreel</span></a>
+            <div class="art art--3" data-cursor-text="Drag ⟷"><span>Carousel</span></div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <h3>Text fields</h3>
+          <p>Inputs get the <code>text</code> state — the native I-beam stays so typing feels normal.</p>
+          <input class="field" type="text" placeholder="Type something…" aria-label="Sample text field">
+        </article>
+
+        <article class="tile">
+          <h3>Colours</h3>
+          <p><code>data-cursor-color</code> recolours every effect while hovering.</p>
+          <div class="row">
+            <span class="swatch" style="--swatch: #ff5a36" data-cursor-color="#ff5a36">Coral</span>
+            <span class="swatch" style="--swatch: #3b5bff" data-cursor-color="#3b5bff">Blue</span>
+            <span class="swatch" style="--swatch: #12b886" data-cursor-color="#12b886">Green</span>
+          </div>
+        </article>
+
+        <article class="tile tile--dark" data-cursor-color="#f4f1ea">
+          <h3>Dark areas</h3>
+          <p>Put <code>data-cursor-color</code> on a dark section so the cursor stays visible. The <em>blend</em> preset needs nothing at all.</p>
+          <a class="button button--light button--small" href="#presets" data-cursor-magnetic data-cursor-stick>Try “blend”</a>
+        </article>
+
+        <article class="tile tile--hatched" data-cursor-hide>
+          <h3>Hidden</h3>
+          <p><code>data-cursor-hide</code> hands this area back to the native cursor — handy for maps, canvases and video players.</p>
+        </article>
+
+        <article class="tile">
+          <h3>API</h3>
+          <p>Drive the cursor from code: states, labels, colours and visibility.</p>
+          <div class="row">
+            <button class="button button--small" type="button" data-api="text">setText('Hi!')</button>
+            <button class="button button--small" type="button" data-api="color">setColor()</button>
+            <button class="button button--small" type="button" data-api="hide">hide() 2s</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Builder ===================== -->
+    <section class="section" id="builder">
+      <header class="section__head">
+        <p class="kicker">03 — Builder</p>
+        <h2>Mix your own.</h2>
+        <p>Stack effects in any combination — the code updates as you go. Later effects are painted on top.</p>
+      </header>
+
+      <div class="builder">
+        <div class="builder__controls">
+          <fieldset>
+            <legend>Effects</legend>
+            <div class="effects" data-effects></div>
+          </fieldset>
+          <fieldset class="builder__theme">
+            <legend>Theme</legend>
+            <label>Colour <input type="color" value="#111111" data-option="color"></label>
+            <label>Accent <input type="color" value="#ff5a36" data-option="accent"></label>
+            <label class="check"><input type="checkbox" checked data-option="magnetic"> Magnetic elements</label>
+          </fieldset>
+        </div>
+        <div class="code">
+          <div class="code__bar">
+            <span>main.js</span>
+            <button type="button" class="code__copy" data-copy-code data-cursor-stick>Copy</button>
+          </div>
+          <pre><code data-code></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Get started ===================== -->
+    <section class="section" id="start">
+      <header class="section__head">
+        <p class="kicker">04 — Get started</p>
+        <h2>Two ways in.</h2>
+      </header>
+
+      <div class="start">
+        <article class="code">
+          <div class="code__bar"><span>index.html — no build step</span></div>
+          <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/cursorly@0.9/dist/cursorly.min.js"
+        data-cursorly="classic"&gt;&lt;/script&gt;</code></pre>
+        </article>
+        <article class="code">
+          <div class="code__bar"><span>main.js — npm</span></div>
+          <pre><code>import Cursorly from 'cursorly';
+
+const cursor = new Cursorly({ preset: 'classic' });
+
+cursor.on('enter', ({ target }) =&gt; console.log(target));</code></pre>
+        </article>
+      </div>
+
+      <div class="attrs">
+        <table>
+          <thead><tr><th>Attribute</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-cursor="name"</code></td><td>Sets a named state while hovering (style it per effect with <code>states</code>).</td></tr>
+            <tr><td><code>data-cursor-text="View"</code></td><td>Shows a label inside the ring, blob or orbit.</td></tr>
+            <tr><td><code>data-cursor-color="#fff"</code></td><td>Recolours the cursor inside this element.</td></tr>
+            <tr><td><code>data-cursor-magnetic="0.4"</code></td><td>Pulls the element towards the pointer.</td></tr>
+            <tr><td><code>data-cursor-stick</code></td><td>The ring morphs around the element.</td></tr>
+            <tr><td><code>data-cursor-hide</code></td><td>Native cursor inside this element.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Cursorly · MIT licence · <a href="https://github.com/JuwelKhan/cursorly" data-cursor-stick>GitHub</a> · <a href="https://www.npmjs.com/package/cursorly" data-cursor-stick>npm</a></p>
+  </footer>
+
+  <div class="now" aria-live="polite">
+    <span class="now__dot"></span>
+    <span>Now: <strong data-now>classic</strong></span>
+  </div>
+
+  <script src="../dist/cursorly.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>

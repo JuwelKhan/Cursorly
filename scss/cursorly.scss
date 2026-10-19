@@ -1,0 +1,171 @@
+// ==========================================================================
+// Cursorly — core styles
+// Inlined into the JS builds; link dist/cursorly.css yourself (and pass
+// `injectCSS: false`) if your Content Security Policy blocks inline styles.
+// ==========================================================================
+
+:root {
+  --cursorly-css: 1; // lets the script know this file is already loaded
+}
+
+// Hide the OS cursor while the custom one is on screen. Text fields keep the
+// I-beam unless `hideNativeCursor: 'all'`.
+$text-fields: 'textarea, input:not([type="submit"], [type="button"], [type="reset"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="image"], [type="hidden"]), [contenteditable]:not([contenteditable="false"]), [contenteditable]:not([contenteditable="false"]) *';
+
+.cly-hide-cursor,
+.cly-hide-cursor :not(#{$text-fields}),
+.cly-hide-cursor-all,
+.cly-hide-cursor-all * {
+  cursor: none !important;
+}
+
+// Every effect draws into its own fixed, click-through layer. Layers are not
+// nested in a shared wrapper so `mix-blend-mode` blends with the page itself.
+.cly-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+  --cly-c: #111;
+}
+
+.cly-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// ---- dot · ring · blob -------------------------------------------------
+.cly-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border: 0 solid var(--cly-c);
+  will-change: transform;
+  transition: border-color 0.25s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--cly-c);
+    opacity: var(--cly-fill, 1);
+    transition: background-color 0.25s ease;
+  }
+}
+
+.cly-shape__label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 0.5em;
+  overflow: hidden;
+  color: var(--cly-label, #fff);
+  font: 600 11px/1.15 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+// ---- spotlight · glow ---------------------------------------------------
+.cly-spotlight {
+  position: absolute;
+  inset: 0;
+}
+
+.cly-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side, var(--cly-c), transparent);
+  will-change: transform;
+}
+
+// ---- snake ---------------------------------------------------------------
+.cly-snake__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+// ---- orbit ---------------------------------------------------------------
+.cly-orbit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+
+  svg {
+    display: block;
+    overflow: visible;
+  }
+
+  text {
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    letter-spacing: 0.12em;
+  }
+}
+
+// ---- crosshair -----------------------------------------------------------
+.cly-crosshair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+
+  &--h {
+    width: 100%;
+    height: var(--cly-w, 1px);
+    background: linear-gradient(to right, var(--cly-c) calc(var(--cly-x) - var(--cly-gap)), transparent 0 calc(var(--cly-x) + var(--cly-gap)), var(--cly-c) 0);
+  }
+
+  &--v {
+    width: var(--cly-w, 1px);
+    height: 100%;
+    background: linear-gradient(to bottom, var(--cly-c) calc(var(--cly-y) - var(--cly-gap)), transparent 0 calc(var(--cly-y) + var(--cly-gap)), var(--cly-c) 0);
+  }
+}
+
+.cly-crosshair__coords {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--cly-c);
+  font: 500 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+}
+
+// ---- image ---------------------------------------------------------------
+.cly-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  will-change: transform;
+
+  img,
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@media print {
+  .cly-layer {
+    display: none;
+  }
+}

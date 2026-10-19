@@ -1,0 +1,68 @@
+{
+  "name": "cursorly",
+  "version": "0.9.0",
+  "description": "Dependency-free custom cursor effects — dots, rings, blend blobs, trails, particles, spotlight, magnetic buttons and more, mixed and matched in one line.",
+  "keywords": [
+    "cursor",
+    "custom-cursor",
+    "mouse",
+    "pointer",
+    "cursor-effects",
+    "magnetic",
+    "trail",
+    "particles",
+    "animation"
+  ],
+  "homepage": "https://juwelkhan.github.io/cursorly/",
+  "bugs": {
+    "url": "https://github.com/JuwelKhan/cursorly/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuwelKhan/cursorly.git"
+  },
+  "license": "MIT",
+  "author": "Jewel Khan (https://github.com/JuwelKhan)",
+  "type": "module",
+  "main": "dist/cursorly.js",
+  "module": "dist/cursorly.esm.js",
+  "types": "types/index.d.ts",
+  "unpkg": "dist/cursorly.min.js",
+  "jsdelivr": "dist/cursorly.min.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/cursorly.esm.js",
+      "default": "./dist/cursorly.js"
+    },
+    "./css": "./dist/cursorly.css",
+    "./scss/*": "./scss/*"
+  },
+  "files": [
+    "dist",
+    "scss",
+    "src",
+    "types",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "*.css",
+    "./src/browser.js",
+    "./src/effects/index.js"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "test:unit": "node --test \"tests/unit/*.test.js\"",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "playwright": "1.56.1",
+    "sass": "^1.105.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
