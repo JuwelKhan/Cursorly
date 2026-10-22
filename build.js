@@ -39,6 +39,7 @@ function buildCss() {
 
 function jsBuilds() {
   const common = {
+    absWorkingDir: DIR, // same output whether built from this folder or the repo root
     bundle: true,
     target: 'es2022',
     banner: { js: banner },
