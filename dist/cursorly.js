@@ -1,4 +1,4 @@
-/*! Cursorly v0.9.0 | MIT License | https://github.com/JuwelKhan/cursorly */
+/*! Cursorly v0.9.0 | MIT License | https://github.com/JuwelKhan/Cursorly */
 var Cursorly = (() => {
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;

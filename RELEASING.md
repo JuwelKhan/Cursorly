@@ -10,12 +10,12 @@ Checklist for moving Cursorly into its own public repository and publishing a re
    ```bash
    # Option A: with history (run inside the TemplateDesigning repo)
    git subtree split --prefix=libraries/cursorly -b cursorly-export
-   git push https://github.com/JuwelKhan/cursorly.git cursorly-export:main
+   git push https://github.com/JuwelKhan/Cursorly.git cursorly-export:main
 
    # Option B: fresh start
    cp -r libraries/cursorly ~/cursorly && cd ~/cursorly
    git init -b main && git add . && git commit -m "Cursorly 0.9.0"
-   git remote add origin https://github.com/JuwelKhan/cursorly.git && git push -u origin main
+   git remote add origin https://github.com/JuwelKhan/Cursorly.git && git push -u origin main
    ```
 
 3. If you use a different repository or package name, update `name`, `repository`, `bugs` and `homepage` in `package.json`, the banner in `build.js`, and the links in `README.md`, `CHANGELOG.md` and `demo/index.html`.
@@ -23,7 +23,7 @@ Checklist for moving Cursorly into its own public repository and publishing a re
 ## 2. Turn on the automation
 
 - **Actions:** the `CI` workflow runs build + tests on every push and pull request.
-- **Pages:** *Settings → Pages → Build and deployment → Source: GitHub Actions*. The `Deploy demo` workflow then publishes the demo at `https://juwelkhan.github.io/cursorly/`.
+- **Pages:** *Settings → Pages → Build and deployment → Source: GitHub Actions*. The `Deploy demo` workflow then publishes the demo at `https://juwelkhan.github.io/Cursorly/`.
 
 ## 3. Manual testing before the first release
 

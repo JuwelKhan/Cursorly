@@ -19,7 +19,7 @@ import * as sass from 'sass';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(fs.readFileSync(path.join(DIR, 'package.json'), 'utf8'));
-const banner = `/*! Cursorly v${pkg.version} | MIT License | https://github.com/JuwelKhan/cursorly */`;
+const banner = `/*! Cursorly v${pkg.version} | MIT License | https://github.com/JuwelKhan/Cursorly */`;
 const watch = process.argv.includes('--watch');
 const r = (...parts) => path.join(DIR, ...parts);
 

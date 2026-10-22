@@ -19,5 +19,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - Touch-only devices left alone by default, `prefers-reduced-motion` support, native I-beam in text fields.
 - Chainable API, instance events, `data-cursorly` auto-initialisation, ES module and IIFE builds with inlined CSS, TypeScript definitions.
 
-[Unreleased]: https://github.com/JuwelKhan/cursorly/compare/v0.9.0...HEAD
-[0.9.0]: https://github.com/JuwelKhan/cursorly/releases/tag/v0.9.0
+[Unreleased]: https://github.com/JuwelKhan/Cursorly/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/JuwelKhan/Cursorly/releases/tag/v0.9.0

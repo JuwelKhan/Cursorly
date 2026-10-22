@@ -1,14 +1,14 @@
 # Cursorly
 
-[![CI](https://github.com/JuwelKhan/cursorly/actions/workflows/ci.yml/badge.svg)](https://github.com/JuwelKhan/cursorly/actions/workflows/ci.yml)
+[![CI](https://github.com/JuwelKhan/Cursorly/actions/workflows/ci.yml/badge.svg)](https://github.com/JuwelKhan/Cursorly/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/cursorly.svg)](https://www.npmjs.com/package/cursorly)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Dependency-free **custom cursor effects** for the web. Dots, rings that wrap your buttons, blobs that invert the page, neon trails, sparkles, ripples, a spotlight, magnetic links and more. Use a preset in one line, or stack effects and build your own.
 
-**[Live demo](https://juwelkhan.github.io/cursorly/)** · or open `demo/index.html` locally.
+**[Live demo](https://juwelkhan.github.io/Cursorly/)** · or open `demo/index.html` locally.
 
-> **Status: beta (0.9).** The API may still change before 1.0. Please [report issues](https://github.com/JuwelKhan/cursorly/issues), especially from Safari, Firefox and pen/tablet devices.
+> **Status: beta (0.9).** The API may still change before 1.0. Please [report issues](https://github.com/JuwelKhan/Cursorly/issues), especially from Safari, Firefox and pen/tablet devices.
 
 ## Features
 
